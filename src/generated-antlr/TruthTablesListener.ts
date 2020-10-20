@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 // Generated from ./TruthTables.g4 by ANTLR 4.7.3-SNAPSHOT
 
@@ -5,8 +6,8 @@
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { ParenthesisContext } from "./TruthTablesParser";
-import { NegContext } from "./TruthTablesParser";
-import { OperationContext } from "./TruthTablesParser";
+import { UnaryOperationContext } from "./TruthTablesParser";
+import { BinaryOperationContext } from "./TruthTablesParser";
 import { ValueContext } from "./TruthTablesParser";
 import { VarContext } from "./TruthTablesParser";
 import { ProgramContext } from "./TruthTablesParser";
@@ -34,30 +35,30 @@ export interface TruthTablesListener extends ParseTreeListener {
 	exitParenthesis?: (ctx: ParenthesisContext) => void;
 
 	/**
-	 * Enter a parse tree produced by the `Neg`
+	 * Enter a parse tree produced by the `UnaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 */
-	enterNeg?: (ctx: NegContext) => void;
+	enterUnaryOperation?: (ctx: UnaryOperationContext) => void;
 	/**
-	 * Exit a parse tree produced by the `Neg`
+	 * Exit a parse tree produced by the `UnaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 */
-	exitNeg?: (ctx: NegContext) => void;
+	exitUnaryOperation?: (ctx: UnaryOperationContext) => void;
 
 	/**
-	 * Enter a parse tree produced by the `Operation`
+	 * Enter a parse tree produced by the `BinaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 */
-	enterOperation?: (ctx: OperationContext) => void;
+	enterBinaryOperation?: (ctx: BinaryOperationContext) => void;
 	/**
-	 * Exit a parse tree produced by the `Operation`
+	 * Exit a parse tree produced by the `BinaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 */
-	exitOperation?: (ctx: OperationContext) => void;
+	exitBinaryOperation?: (ctx: BinaryOperationContext) => void;
 
 	/**
 	 * Enter a parse tree produced by the `Value`

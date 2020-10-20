@@ -13,25 +13,16 @@ export const ValueCell: FunctionComponent<ValueCellProps> = (props) => {
 
   return (
     <STableCell value={value} {...rest} align="center">
-      <IconContainer value={value}>
-        {value ? <SCheckIcon value={value} /> : <SClearIcon value={value} />}
-      </IconContainer>
+      <IconContainer>{value ? <CheckIcon /> : <ClearIcon />}</IconContainer>
     </STableCell>
   );
 };
-const SCheckIcon = styled(CheckIcon)<Pick<ValueCellProps, "value">>`
-  display: block;
-`;
-
-const SClearIcon = styled(ClearIcon)<Pick<ValueCellProps, "value">>`
-  display: block;
-`;
 
 const STableCell = styled(TableCell)<Pick<ValueCellProps, "value">>`
   padding: 0;
+  background-color: ${({ value }) => (value ? "green" : "red")};
   vertical-align: middle;
   border: none;
-
   color: white;
 
   &.MuiTableCell-sizeSmall:last-child {
@@ -39,9 +30,9 @@ const STableCell = styled(TableCell)<Pick<ValueCellProps, "value">>`
   }
 `;
 
-const IconContainer = styled.span<Pick<ValueCellProps, "value">>`
-  background-color: ${({ value }) => (value ? "green" : "red")};
+const IconContainer = styled.span`
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 100%;
 `;

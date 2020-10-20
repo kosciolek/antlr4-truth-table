@@ -2,15 +2,16 @@ import { TableCell } from "@material-ui/core";
 import styled from "styled-components";
 
 export const StepCell = styled(TableCell)`
-  padding: 0;
+  padding: 4px 16px;
   white-space: nowrap;
   border: none;
   position: sticky;
   left: 0;
   background-color: whitesmoke;
+ 
 `;
 
 StepCell.defaultProps = {
   component: "th",
-  align: "left",
+  align: "right",
 };

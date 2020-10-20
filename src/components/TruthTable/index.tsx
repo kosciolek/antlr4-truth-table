@@ -11,11 +11,10 @@ import {
 import React from "react";
 import { useSelector } from "react-redux";
 import { tableStepsSelector } from "../../store/slices/tables";
-import CheckIcon from "@material-ui/icons/Check";
-import ClearIcon from "@material-ui/icons/Clear";
 import { ValueCell } from "./components/ValueCell";
 import { Row } from "./components/Row";
 import { StepCell } from "./components/StepCell";
+import { InputCell } from "./components/InputCell";
 
 export type TruthTableProps = {};
 
@@ -29,19 +28,13 @@ export const TruthTable: FunctionComponent<TruthTableProps> = (props) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Result</TableCell>
+            {/**/}
+            <TableCell align="center" style={{ position: "sticky", left: 0 }}>
+              Result
+            </TableCell>
 
             {stepsForInputs.map(({ input }) => (
-              <TableCell key={JSON.stringify(input)} align="center">
-                {Object.entries(input).map(([varName, value]) => (
-                  <Fragment key={varName}>
-                    <span style={{ whiteSpace: "nowrap" }}>
-                      {varName} = {value.toString()}
-                    </span>
-                    <br />
-                  </Fragment>
-                ))}
-              </TableCell>
+              <InputCell input={input} key={JSON.stringify(input)} />
             ))}
           </TableRow>
         </TableHead>

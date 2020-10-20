@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 // Generated from ./TruthTables.g4 by ANTLR 4.7.3-SNAPSHOT
 
@@ -83,12 +84,21 @@ export class TruthTablesParser extends Parser {
 	public program(): ProgramContext {
 		let _localctx: ProgramContext = new ProgramContext(this._ctx, this.state);
 		this.enterRule(_localctx, 0, TruthTablesParser.RULE_program);
+		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 8;
-			this.expression(0);
 			this.state = 9;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << TruthTablesParser.NEG) | (1 << TruthTablesParser.VALUE) | (1 << TruthTablesParser.L_BRACKET) | (1 << TruthTablesParser.VAR))) !== 0)) {
+				{
+				this.state = 8;
+				this.expression(0);
+				}
+			}
+
+			this.state = 11;
 			this.match(TruthTablesParser.EOF);
 			}
 		}
@@ -125,7 +135,7 @@ export class TruthTablesParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 21;
+			this.state = 23;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case TruthTablesParser.L_BRACKET:
@@ -134,22 +144,22 @@ export class TruthTablesParser extends Parser {
 				this._ctx = _localctx;
 				_prevctx = _localctx;
 
-				this.state = 12;
-				this.match(TruthTablesParser.L_BRACKET);
-				this.state = 13;
-				this.expression(0);
 				this.state = 14;
+				this.match(TruthTablesParser.L_BRACKET);
+				this.state = 15;
+				this.expression(0);
+				this.state = 16;
 				this.match(TruthTablesParser.R_BRACKET);
 				}
 				break;
 			case TruthTablesParser.NEG:
 				{
-				_localctx = new NegContext(_localctx);
+				_localctx = new UnaryOperationContext(_localctx);
 				this._ctx = _localctx;
 				_prevctx = _localctx;
-				this.state = 16;
-				(_localctx as NegContext)._op = this.unaryOp();
-				this.state = 17;
+				this.state = 18;
+				(_localctx as UnaryOperationContext)._op = this.unaryOp();
+				this.state = 19;
 				this.expression(4);
 				}
 				break;
@@ -158,7 +168,7 @@ export class TruthTablesParser extends Parser {
 				_localctx = new ValueContext(_localctx);
 				this._ctx = _localctx;
 				_prevctx = _localctx;
-				this.state = 19;
+				this.state = 21;
 				this.match(TruthTablesParser.VALUE);
 				}
 				break;
@@ -167,7 +177,7 @@ export class TruthTablesParser extends Parser {
 				_localctx = new VarContext(_localctx);
 				this._ctx = _localctx;
 				_prevctx = _localctx;
-				this.state = 20;
+				this.state = 22;
 				this.match(TruthTablesParser.VAR);
 				}
 				break;
@@ -175,9 +185,9 @@ export class TruthTablesParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			this._ctx._stop = this._input.tryLT(-1);
-			this.state = 29;
+			this.state = 31;
 			this._errHandler.sync(this);
-			_alt = this.interpreter.adaptivePredict(this._input, 1, this._ctx);
+			_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					if (this._parseListeners != null) {
@@ -186,23 +196,23 @@ export class TruthTablesParser extends Parser {
 					_prevctx = _localctx;
 					{
 					{
-					_localctx = new OperationContext(new ExpressionContext(_parentctx, _parentState));
-					(_localctx as OperationContext)._left = _prevctx;
+					_localctx = new BinaryOperationContext(new ExpressionContext(_parentctx, _parentState));
+					(_localctx as BinaryOperationContext)._left = _prevctx;
 					this.pushNewRecursionContext(_localctx, _startState, TruthTablesParser.RULE_expression);
-					this.state = 23;
+					this.state = 25;
 					if (!(this.precpred(this._ctx, 3))) {
 						throw new FailedPredicateException(this, "this.precpred(this._ctx, 3)");
 					}
-					this.state = 24;
-					(_localctx as OperationContext)._op = this.binaryOp();
-					this.state = 25;
-					(_localctx as OperationContext)._right = this.expression(4);
+					this.state = 26;
+					(_localctx as BinaryOperationContext)._op = this.binaryOp();
+					this.state = 27;
+					(_localctx as BinaryOperationContext)._right = this.expression(4);
 					}
 					}
 				}
-				this.state = 31;
+				this.state = 33;
 				this._errHandler.sync(this);
-				_alt = this.interpreter.adaptivePredict(this._input, 1, this._ctx);
+				_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
 			}
 			}
 		}
@@ -228,7 +238,7 @@ export class TruthTablesParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 32;
+			this.state = 34;
 			_la = this._input.LA(1);
 			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << TruthTablesParser.AND) | (1 << TruthTablesParser.OR) | (1 << TruthTablesParser.XOR) | (1 << TruthTablesParser.IMPL) | (1 << TruthTablesParser.EQUIV))) !== 0))) {
 			this._errHandler.recoverInline(this);
@@ -263,7 +273,7 @@ export class TruthTablesParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 34;
+			this.state = 36;
 			this.match(TruthTablesParser.NEG);
 			}
 		}
@@ -298,24 +308,25 @@ export class TruthTablesParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\r\'\x04\x02\t" +
-		"\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x03\x02\x03\x02\x03\x02" +
-		"\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03" +
-		"\x03\x03\x05\x03\x18\n\x03\x03\x03\x03\x03\x03\x03\x03\x03\x07\x03\x1E" +
-		"\n\x03\f\x03\x0E\x03!\v\x03\x03\x04\x03\x04\x03\x05\x03\x05\x03\x05\x02" +
-		"\x02\x03\x04\x06\x02\x02\x04\x02\x06\x02\b\x02\x02\x03\x03\x02\x03\x07" +
-		"\x02&\x02\n\x03\x02\x02\x02\x04\x17\x03\x02\x02\x02\x06\"\x03\x02\x02" +
-		"\x02\b$\x03\x02\x02\x02\n\v\x05\x04\x03\x02\v\f\x07\x02\x02\x03\f\x03" +
-		"\x03\x02\x02\x02\r\x0E\b\x03\x01\x02\x0E\x0F\x07\n\x02\x02\x0F\x10\x05" +
-		"\x04\x03\x02\x10\x11\x07\v\x02\x02\x11\x18\x03\x02\x02\x02\x12\x13\x05" +
-		"\b\x05\x02\x13\x14\x05\x04\x03\x06\x14\x18\x03\x02\x02\x02\x15\x18\x07" +
-		"\t\x02\x02\x16\x18\x07\f\x02\x02\x17\r\x03\x02\x02\x02\x17\x12\x03\x02" +
-		"\x02\x02\x17\x15\x03\x02\x02\x02\x17\x16\x03\x02\x02\x02\x18\x1F\x03\x02" +
-		"\x02\x02\x19\x1A\f\x05\x02\x02\x1A\x1B\x05\x06\x04\x02\x1B\x1C\x05\x04" +
-		"\x03\x06\x1C\x1E\x03\x02\x02\x02\x1D\x19\x03\x02\x02\x02\x1E!\x03\x02" +
-		"\x02\x02\x1F\x1D\x03\x02\x02\x02\x1F \x03\x02\x02\x02 \x05\x03\x02\x02" +
-		"\x02!\x1F\x03\x02\x02\x02\"#\t\x02\x02\x02#\x07\x03\x02\x02\x02$%\x07" +
-		"\b\x02\x02%\t\x03\x02\x02\x02\x04\x17\x1F";
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\r)\x04\x02\t" +
+		"\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x03\x02\x05\x02\f\n\x02" +
+		"\x03\x02\x03\x02\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03" +
+		"\x03\x03\x03\x03\x03\x03\x05\x03\x1A\n\x03\x03\x03\x03\x03\x03\x03\x03" +
+		"\x03\x07\x03 \n\x03\f\x03\x0E\x03#\v\x03\x03\x04\x03\x04\x03\x05\x03\x05" +
+		"\x03\x05\x02\x02\x03\x04\x06\x02\x02\x04\x02\x06\x02\b\x02\x02\x03\x03" +
+		"\x02\x03\x07\x02)\x02\v\x03\x02\x02\x02\x04\x19\x03\x02\x02\x02\x06$\x03" +
+		"\x02\x02\x02\b&\x03\x02\x02\x02\n\f\x05\x04\x03\x02\v\n\x03\x02\x02\x02" +
+		"\v\f\x03\x02\x02\x02\f\r\x03\x02\x02\x02\r\x0E\x07\x02\x02\x03\x0E\x03" +
+		"\x03\x02\x02\x02\x0F\x10\b\x03\x01\x02\x10\x11\x07\n\x02\x02\x11\x12\x05" +
+		"\x04\x03\x02\x12\x13\x07\v\x02\x02\x13\x1A\x03\x02\x02\x02\x14\x15\x05" +
+		"\b\x05\x02\x15\x16\x05\x04\x03\x06\x16\x1A\x03\x02\x02\x02\x17\x1A\x07" +
+		"\t\x02\x02\x18\x1A\x07\f\x02\x02\x19\x0F\x03\x02\x02\x02\x19\x14\x03\x02" +
+		"\x02\x02\x19\x17\x03\x02\x02\x02\x19\x18\x03\x02\x02\x02\x1A!\x03\x02" +
+		"\x02\x02\x1B\x1C\f\x05\x02\x02\x1C\x1D\x05\x06\x04\x02\x1D\x1E\x05\x04" +
+		"\x03\x06\x1E \x03\x02\x02\x02\x1F\x1B\x03\x02\x02\x02 #\x03\x02\x02\x02" +
+		"!\x1F\x03\x02\x02\x02!\"\x03\x02\x02\x02\"\x05\x03\x02\x02\x02#!\x03\x02" +
+		"\x02\x02$%\t\x02\x02\x02%\x07\x03\x02\x02\x02&\'\x07\b\x02\x02\'\t\x03" +
+		"\x02\x02\x02\x05\v\x19!";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!TruthTablesParser.__ATN) {
@@ -328,10 +339,10 @@ export class TruthTablesParser extends Parser {
 }
 
 export class ProgramContext extends ParserRuleContext {
-	public expression(): ExpressionContext {
-		return this.getRuleContext(0, ExpressionContext);
-	}
 	public EOF(): TerminalNode { return this.getToken(TruthTablesParser.EOF, 0); }
+	public expression(): ExpressionContext | undefined {
+		return this.tryGetRuleContext(0, ExpressionContext);
+	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
@@ -401,7 +412,7 @@ export class ParenthesisContext extends ExpressionContext {
 		}
 	}
 }
-export class NegContext extends ExpressionContext {
+export class UnaryOperationContext extends ExpressionContext {
 	public _op: UnaryOpContext;
 	public expression(): ExpressionContext {
 		return this.getRuleContext(0, ExpressionContext);
@@ -415,26 +426,26 @@ export class NegContext extends ExpressionContext {
 	}
 	// @Override
 	public enterRule(listener: TruthTablesListener): void {
-		if (listener.enterNeg) {
-			listener.enterNeg(this);
+		if (listener.enterUnaryOperation) {
+			listener.enterUnaryOperation(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: TruthTablesListener): void {
-		if (listener.exitNeg) {
-			listener.exitNeg(this);
+		if (listener.exitUnaryOperation) {
+			listener.exitUnaryOperation(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: TruthTablesVisitor<Result>): Result {
-		if (visitor.visitNeg) {
-			return visitor.visitNeg(this);
+		if (visitor.visitUnaryOperation) {
+			return visitor.visitUnaryOperation(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
 	}
 }
-export class OperationContext extends ExpressionContext {
+export class BinaryOperationContext extends ExpressionContext {
 	public _left: ExpressionContext;
 	public _op: BinaryOpContext;
 	public _right: ExpressionContext;
@@ -456,20 +467,20 @@ export class OperationContext extends ExpressionContext {
 	}
 	// @Override
 	public enterRule(listener: TruthTablesListener): void {
-		if (listener.enterOperation) {
-			listener.enterOperation(this);
+		if (listener.enterBinaryOperation) {
+			listener.enterBinaryOperation(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: TruthTablesListener): void {
-		if (listener.exitOperation) {
-			listener.exitOperation(this);
+		if (listener.exitBinaryOperation) {
+			listener.exitBinaryOperation(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: TruthTablesVisitor<Result>): Result {
-		if (visitor.visitOperation) {
-			return visitor.visitOperation(this);
+		if (visitor.visitBinaryOperation) {
+			return visitor.visitBinaryOperation(this);
 		} else {
 			return visitor.visitChildren(this);
 		}

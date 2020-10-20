@@ -2,23 +2,23 @@ grammar TruthTables;
 
 
 /* Parser rules */
-program : expression EOF;
+program : expression? EOF;
 
 expression : L_BRACKET expression R_BRACKET #Parenthesis
-           | op=unaryOp expression #Neg
-           | left=expression op=binaryOp right=expression #Operation
+           | op=unaryOp expression #UnaryOperation
+           | left=expression op=binaryOp right=expression #BinaryOperation
            | VALUE #Value
            | VAR #Var
            ;
 
-binaryOp: AND | OR | XOR | IMPL | EQUIV #BinaryOp;
+binaryOp: AND | OR | XOR | IMPL | EQUIV #BinaryOperator;
 unaryOp: NEG;
 
 /* Lexer rules */
 AND : A N D ;
 OR : O R;
 XOR : X O R;
-IMPL : ((I M P L)|'=>');
+IMPL : ((I M P L)|'=>') {this._text = "=>";};
 EQUIV : ((E Q U I V)|'<=>');
 NEG : ((N E G)|'~');
 VALUE : (T R U E | F A L S E | '1' | '0');

@@ -3,6 +3,7 @@ import { TextField } from "@material-ui/core";
 import { useAppDispatch } from "../../store/useAppDispatch";
 import { formulaSelector, tablesSlice } from "../../store/slices/tables";
 import { useSelector } from "react-redux";
+import { generateTableOnWorker } from "../../store/slices/tables/saga";
 
 export type FormulaInputProps = {};
 
@@ -12,6 +13,7 @@ export const FormulaInput: FunctionComponent<FormulaInputProps> = (props) => {
   const dispatch = useAppDispatch();
   const onChange = useCallback((e) => {
     dispatch(tablesSlice.actions.setFormula(e.target.value));
+    dispatch(generateTableOnWorker(e.target.value));
   }, []);
 
   const value = useSelector(formulaSelector);

@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 // Generated from ./TruthTables.g4 by ANTLR 4.7.3-SNAPSHOT
 
@@ -5,8 +6,8 @@
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
 import { ParenthesisContext } from "./TruthTablesParser";
-import { NegContext } from "./TruthTablesParser";
-import { OperationContext } from "./TruthTablesParser";
+import { UnaryOperationContext } from "./TruthTablesParser";
+import { BinaryOperationContext } from "./TruthTablesParser";
 import { ValueContext } from "./TruthTablesParser";
 import { VarContext } from "./TruthTablesParser";
 import { ProgramContext } from "./TruthTablesParser";
@@ -32,20 +33,20 @@ export interface TruthTablesVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitParenthesis?: (ctx: ParenthesisContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by the `Neg`
+	 * Visit a parse tree produced by the `UnaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitNeg?: (ctx: NegContext) => Result;
+	visitUnaryOperation?: (ctx: UnaryOperationContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by the `Operation`
+	 * Visit a parse tree produced by the `BinaryOperation`
 	 * labeled alternative in `TruthTablesParser.expression`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitOperation?: (ctx: OperationContext) => Result;
+	visitBinaryOperation?: (ctx: BinaryOperationContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by the `Value`

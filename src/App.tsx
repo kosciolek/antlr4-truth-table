@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from "react";
-import { TextField } from "@material-ui/core";
-import { generateTruthTable } from "./antlr";
-import { useSelector } from "react-redux";
 import { FormulaInput } from "./components/FormulaInput";
-import { tableStepsSelector } from "./store/slices/tables";
+
 import { TruthTable } from "./components/TruthTable";
+import { GlobalStyles } from "./styles/GlobalStyles";
+
+/* Initialize the table-generating worker. */
+import "./store/slices/tables/worker";
 
 function App() {
-  const table = useSelector(tableStepsSelector);
   return (
     <>
+      <GlobalStyles />
       <FormulaInput />
       <TruthTable />
     </>

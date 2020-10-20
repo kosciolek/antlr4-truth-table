@@ -1,7 +1,7 @@
 import { AbstractParseTreeVisitor, ParseTreeWalker } from "antlr4ts/tree";
 import { TruthTablesVisitor } from "../generated-antlr/TruthTablesVisitor";
 import {
-  OperationContext,
+  BinaryOperationContext,
   ParenthesisContext,
   ProgramContext,
   TruthTablesParser,
@@ -33,14 +33,14 @@ class StepsVisitor
   operations: { text: string; value: boolean }[] = [];
 
   visitProgram(ctx: ProgramContext) {
-    return ctx.expression().accept(this);
+    return ctx.expression()?.accept(this);
   }
 
   visitParenthesis(ctx: ParenthesisContext) {
     return this.visit(ctx.expression());
   }
 
-  visitOperation(ctx: OperationContext) {
+  visitBinaryOperation(ctx: BinaryOperationContext) {
     let value, text;
 
     const lVal = ctx._left.accept(this);

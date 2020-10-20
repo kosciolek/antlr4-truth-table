@@ -1,9 +1,9 @@
-import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSelector, createSlice, PayloadAction,} from "@reduxjs/toolkit";
 import {generateTruthTable} from "../../../antlr";
 import {RootState} from "../../RootState";
 
 export type TablesSliceType = typeof initialState;
-const initialState = {formula: ""};
+const initialState = { formula: "" };
 
 export const tablesSlice = createSlice({
   name: "tables",
@@ -14,7 +14,9 @@ export const tablesSlice = createSlice({
     },
   },
 });
+
 export const formulaSelector = (state: RootState) => state.tables.formula;
 export const tableStepsSelector = createSelector([formulaSelector], (formula) =>
   generateTruthTable(formula)
 );
+
