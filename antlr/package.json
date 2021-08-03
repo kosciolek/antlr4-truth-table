@@ -8,6 +8,7 @@
     "typescript": "^4.0.5"
   },
   "scripts": {
-    "generate": "cd rules && rm -rf src/generated/* && antlr4ts -visitor -o ../src/generated ./TruthTables.g4 && find ../src/generated/*.ts | xargs sed -i '1,1s/^/\\/* eslint-disable *\\/\\n\\/\\/ @ts-nocheck\\n/'"
+    "generate": "cd rules && rm -rf ../src/generated/* && antlr4ts -visitor -o ../src/generated ./TruthTables.g4 && find ../src/generated/*.ts | xargs sed -i '1s$^$\\/* eslint-disable *\\/\\\n\\/\\/ @ts-nocheck\\\n$'",
+    "build": "tsc --build"
   }
 }

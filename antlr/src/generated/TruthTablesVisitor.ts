@@ -92,4 +92,3 @@ export interface TruthTablesVisitor<Result> extends ParseTreeVisitor<Result> {
 	 */
 	visitUnaryOp?: (ctx: UnaryOpContext) => Result;
 }
-
