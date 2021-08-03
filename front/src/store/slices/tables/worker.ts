@@ -1,7 +1,6 @@
 import { generateTruthTable } from "@attg/antlr";
 
 onmessage = (ev) => {
-  console.log("msg in worker", ev.data);
   const {
     data: { payload, taskIndex },
   } = ev;

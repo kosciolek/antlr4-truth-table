@@ -18,7 +18,11 @@ export function* generateOnWorker(
   taskIndex: number,
   action: ReturnType<typeof generateTableOnWorker>
 ) {
-  worker.postMessage({ type: "asd", taskIndex, payload: action.payload });
+  worker.postMessage({
+    type: "generate-on-worker",
+    taskIndex,
+    payload: action.payload,
+  });
 }
 
 export function* channel(workers: Worker[]) {
