@@ -12,6 +12,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "incremental": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
@@ -23,5 +25,10 @@
   },
   "include": [
     "src"
+  ],
+  "references": [
+    {
+      "path": "../antlr"
+    }
   ]
 }

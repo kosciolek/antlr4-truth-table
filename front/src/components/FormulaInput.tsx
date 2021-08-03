@@ -4,11 +4,11 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Box, TextField } from "@material-ui/core";
+import { Box, LinearProgress, TextField } from "@material-ui/core";
+import styled from "styled-components";
 import { useDebounce } from "../hooks/useDebounce";
 import { useAppDispatch } from "../store/useAppDispatch";
-import { formulaSelector, tablesSlice } from "../store/slices/tables";
-import { useSelector } from "react-redux";
+import { tablesSlice } from "../store/slices/tables";
 import { generateTableOnWorker } from "../store/slices/tables/saga";
 
 export type FormulaInputProps = {};
@@ -26,15 +26,23 @@ export const FormulaInput: FunctionComponent<FormulaInputProps> = ({
     dispatch(generateTableOnWorker(debounced));
   }, [dispatch, debounced]);
 
+  const isDebouncing = value !== debounced;
+
   return (
     <Box p={4}>
       <TextField
-        label="Put your expression here"
+        label="Expression"
+        placeholder="A or B => C and B or C"
         fullWidth
         {...rest}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      {isDebouncing ? <LinearProgress /> : <Placeholder />}
     </Box>
   );
 };
+
+export const Placeholder = styled.div`
+  height: 4px;
+`;

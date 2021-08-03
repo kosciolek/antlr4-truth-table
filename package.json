@@ -1,5 +1,10 @@
 {
   "name": "@attg/main",
   "private": true,
+  "author": "kosciolek",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "cd antlr && yarn build"
+  },
   "workspaces": ["front", "antlr"]
 }
